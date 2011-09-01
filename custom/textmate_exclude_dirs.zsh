@@ -8,14 +8,16 @@ m()
   # excluding directories that tend to slow down "Find in Project"
   #
   # Add this function to your dotfiles or ~/.bash_profile or ~/.zshrc for it 
-  # to be available in your shell.
+  # to be available in your shell. You can also add it as a tm_exclude_dirs.zsh 
+  # file in the custom folder of an ~/.oh-my-zsh install
   
   # shopt -s extglob  # Enable extended globbing for bash
   setopt extended_glob # Enable extended globbing for zsh
    
   # Invoke TextMate upon all the files and directories except those listed
-  mate !(@(cache|log|tmp|*.tmproj)) "$@"
+  # Note: Don't open tmproj files or you'll get two windows (added to list)
+  mate !(@(cache|log|tmp|*.tmproj)) "$@" 
   
   # shopt -u extglob  # Disable extended globbing for bash
-  setopt extended_glob  # Disable extended globbing for zsh
+  unsetopt extended_glob  # Disable extended globbing for zsh
 }
