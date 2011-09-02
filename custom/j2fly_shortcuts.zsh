@@ -52,6 +52,7 @@ alias glgl='git log --no-merges --reverse --pretty=format:"%Cgreen%h%Creset%x09%
 alias gt='git tag'
 alias gt_remote='git ls-remote --tags'
 alias gt_delete='git push origin :refs/tags/'
+alias gwc='git whatchanged'
 
 # Nocorrect Aliases
 # -----------------
