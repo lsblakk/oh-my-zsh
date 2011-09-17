@@ -53,6 +53,9 @@ alias gt='git tag'
 alias gt_remote='git ls-remote --tags'
 alias gt_delete='git push origin :refs/tags/'
 alias gwc='git whatchanged'
+alias gbm='git branch --merged'
+alias gbnm='git branch --no-merged'
+alias gmt='git mergetool'
 
 # Nocorrect Aliases
 # -----------------
@@ -67,23 +70,7 @@ alias bolstr='cd /rails/intridea/bolstr'
 # VIM
 # ---
 alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
-alias gvim='vim --remote-silent'
-
-function v() {
-if [[ -z "$_V" ]] ; then
-  # No vim in the background.
-  vim --servername vim$$ $@ &
-  # Get the JOB number of the vim server!
-  _V=$(jobs -l | grep $! | sed -e "s/^\[\(.*\)\].*/\1/")
-  fg $_V && unset _V
-else
-  # There is a v in the background, so we'll resume that and load the new
-  # file.
-  bash -c "sleep .1 ; vim --servername vim$$ --remote-silent $@ ; \
-    vim --servername vim$$ --remote-send ':redraw<CR>'" &
-  fg $_V && unset _V
-fi
-                                           }
+alias linkcolor='ln -nsf /Users/jon/Dropbox/Library/dotfiles/.vim/jonkrails.vim /Users/jon/.vim/colors/'
 
 # RAILS
 # -----
